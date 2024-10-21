@@ -39,18 +39,26 @@ class AuthController extends Controller
 
     // handle the signup logic
     public function signup(Request $request){
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048,'
         ]);
 
+        if ($request->hasFile('profile_image')) {
+            $imageName = time().'.'.$request->profile_image->extenstion();
+            $request->profile_image->move(public_path('images'), $imageName);
+            $validatedData['profile_image'] = $imageName;
+
+        }
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
         // create a new user
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
+        User::create(
+           $validatedData
+        );
 
         // automatically log the user in
         Auth::attempt($request->only('email', 'password'));
