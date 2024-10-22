@@ -13,3 +13,20 @@ import './bootstrap';
  */
 
 import './components/Example';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Register from './components/register';
+
+function App(){
+    return (
+        <Router>
+            <Routes>
+                <Route path="/register" element={<Register />} />
+            </Routes>
+        </Router>
+    );
+}
+
+ReactDOM.render(<App />, document.getElementById('app'));
