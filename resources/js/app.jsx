@@ -15,7 +15,7 @@ import './bootstrap';
 import './components/Example';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './components/register';
 
@@ -30,3 +30,8 @@ function App(){
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+// ReactDOM.render(<App />, document.getElementById('app')).render(
+//     <React.StrictMode>
+//         <Register />
+//     </React.StrictMode>
+// );

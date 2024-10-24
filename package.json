@@ -7,16 +7,20 @@
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
-        "@vitejs/plugin-react": "^4.2.0",
+        "@types/react": "^18.3.12",
+        "@types/react-dom": "^18.3.1",
+        "@vitejs/plugin-react": "^4.3.3",
         "axios": "^1.7.4",
         "bootstrap": "^5.2.3",
         "laravel-vite-plugin": "^1.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
         "sass": "^1.56.1",
         "vite": "^5.0"
     },
     "dependencies": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
         "react-router-dom": "^6.27.0"
     }
 }
